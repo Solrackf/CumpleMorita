@@ -9,7 +9,7 @@
    4. Partículas    — corazones, destellos, estrellas y pétalos (60 FPS)
    5. Parallax      — profundidad sutil con el mouse
    6. Confeti       — únicamente en la pantalla final
-   7. Navegación    — botones Comenzar / Sorpresa
+   7. Navegación    — botón Comenzar
    ═══════════════════════════════════════════════════════════ */
 
 'use strict';

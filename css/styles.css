@@ -169,30 +169,6 @@ body {
 }
 .btn-primary:active { transform: translateY(-1px) scale(0.99); }
 
-.btn-ghost {
-  margin-top: 4rem;
-  padding: 0.95rem 2.6rem;
-  border: 1px solid var(--dorado-suave);
-  border-radius: 999px;
-  background: rgba(255, 253, 251, 0.5);
-  backdrop-filter: blur(10px);
-  font-family: var(--font-ui);
-  font-size: 0.92rem;
-  letter-spacing: 0.14em;
-  color: var(--tinta-suave);
-  cursor: pointer;
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 2.4s var(--ease-cine), transform 2.4s var(--ease-cine),
-              box-shadow 0.5s, border-color 0.5s;
-}
-.btn-ghost.visible { opacity: 1; transform: translateY(0); }
-.btn-ghost:hover {
-  border-color: var(--dorado);
-  box-shadow: 0 0 28px rgba(201, 169, 106, 0.25);
-  color: var(--tinta);
-}
-
 /* ═══════════════════════════════════════════
    INICIO (HERO)
    ═══════════════════════════════════════════ */
@@ -332,7 +308,6 @@ body {
 .chapter[data-bg="gallery"]  { background: linear-gradient(170deg, var(--lila-suave), var(--blanco)); }
 .chapter[data-bg="quiet"]    { background: var(--blanco); }
 .chapter[data-bg="final"]    { background: radial-gradient(ellipse at 50% 30%, var(--rosa-suave), var(--blanco) 75%); }
-.chapter[data-bg="surprise"] { background: linear-gradient(180deg, var(--blanco), var(--lila-suave)); }
 
 /* ───────────────────────────────────────────
    TARJETA DE CARTA — glassmorphism muy sutil
@@ -570,24 +545,6 @@ body {
   width: 72px;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--dorado), transparent);
-}
-
-/* ═══════════════════════════════════════════
-   SORPRESA FUTURA
-   ═══════════════════════════════════════════ */
-.surprise-inner { text-align: center; padding: 0 1rem; }
-.surprise-heart {
-  font-size: 3rem;
-  color: var(--rosa);
-  animation: heartbeat 2s ease-in-out infinite;
-  filter: drop-shadow(0 0 24px rgba(249, 223, 228, 0.9));
-  margin-bottom: 1.4rem;
-}
-.surprise-text {
-  font-family: var(--font-titulo);
-  font-style: italic;
-  font-size: clamp(1.4rem, 3.5vw, 2rem);
-  color: var(--tinta-suave);
 }
 
 /* ═══════════════════════════════════════════
