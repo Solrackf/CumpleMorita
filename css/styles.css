@@ -373,10 +373,30 @@ body {
 
 .signature {
   margin-top: 1.6rem;
-  font-family: var(--font-titulo);
-  font-style: italic;
-  font-size: 1.5rem !important;
-  color: var(--dorado);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Firma animada — dibujo continuo del texto */
+.signature-draw {
+  width: 100%;
+  max-width: min(100%, 320px);
+  height: auto;
+  overflow: visible;
+  display: inline-block;
+}
+.signature-text {
+  fill: transparent;
+  stroke: var(--dorado);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  paint-order: stroke fill;
+  transition: stroke-dashoffset 2.6s ease-in-out, fill 0.8s ease 2.1s;
+}
+.signature-draw.drawn .signature-text {
+  fill: var(--dorado);
 }
 
 /* ───────────────────────────────────────────
@@ -520,8 +540,9 @@ body {
 }
 .final-signature {
   margin-top: 1.6rem;
-  font-style: italic;
-  color: var(--dorado);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .final-promise {
   margin: 3.4rem auto 0;

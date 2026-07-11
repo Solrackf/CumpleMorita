@@ -123,9 +123,59 @@ const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
     entry.target.classList.add('in');
+
+    // Si el contenedor tiene una firma SVG, se dibuja tras revelarse
+    const svg = entry.target.querySelector('.signature-draw');
+    if (svg) startSignature(svg, entry.target);
+
     revealObserver.unobserve(entry.target); // solo se anima una vez
   });
 }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+/** Prepara el SVG de la firma: calcula viewBox y longitud del trazo. */
+function prepareSignature(svg) {
+  const text = svg.querySelector('.signature-text');
+  if (!text || svg.dataset.prepared) return;
+
+  const width = text.getComputedTextLength();
+  if (!width) return;
+
+  const padding = 40;            // aire a los lados
+  const w = Math.ceil(width + padding * 2);
+  const length = Math.ceil(width * 3.2); // aproximación del trazo de la firma
+
+  svg.setAttribute('viewBox', `0 0 ${w} 60`);
+  text.setAttribute('x', w / 2);
+  text.style.strokeDasharray = `${length}`;
+  text.style.strokeDashoffset = `${length}`;
+  svg.dataset.prepared = 'true';
+}
+
+/** Dispara la animación de dibujo de la firma. */
+function drawSignature(svg) {
+  const text = svg.querySelector('.signature-text');
+  if (!text) return;
+  svg.classList.add('drawn');
+  text.style.strokeDashoffset = '0';
+}
+
+/** Inicia la firma cuando su contenedor ya es visible. */
+function startSignature(svg, parent) {
+  prepareSignature(svg);
+
+  const onEnd = (e) => {
+    if (e.propertyName !== 'opacity' || !parent.classList.contains('in')) return;
+    parent.removeEventListener('transitionend', onEnd);
+    drawSignature(svg);
+  };
+
+  // Espera a que termine el fade-in del padre para dibujar la firma
+  if (parent.classList.contains('reveal-slow') || parent.classList.contains('reveal')) {
+    parent.addEventListener('transitionend', onEnd);
+  } else {
+    drawSignature(svg);
+  }
+}
 
 /** Prepara los elementos con revelado escalonado dentro de cada sección. */
 function initReveals() {
