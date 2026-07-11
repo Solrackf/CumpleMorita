@@ -54,6 +54,20 @@ window.addEventListener('load', () => {
       loader.classList.add('hidden');       // 1. desaparece el loader
       hero.classList.add('entered');        // 2. animación de bienvenida
 
+      // Prepara y dibuja la firma del apodo en el título del hero
+      const heroSvg = hero.querySelector('.nickname-draw');
+      if (heroSvg) {
+        prepareSignature(heroSvg);
+        const heroTitle = hero.querySelector('.hero-title');
+        const onHeroEnd = (e) => {
+          if (e.animationName === 'enter') {
+            heroTitle.removeEventListener('animationend', onHeroEnd);
+            drawSignature(heroSvg);
+          }
+        };
+        heroTitle.addEventListener('animationend', onHeroEnd);
+      }
+
       // 3. Esperar ~1 s tras la bienvenida → 4. música con fade-in
       setTimeout(() => tryAutoplayMusic(), 2200 + CONFIG.music.delayAfterWelcome);
     }, 600);
@@ -140,11 +154,11 @@ function prepareSignature(svg) {
   const width = text.getComputedTextLength();
   if (!width) return;
 
-  const padding = 40;            // aire a los lados
+  const padding = 60;            // aire a los lados
   const w = Math.ceil(width + padding * 2);
-  const length = Math.ceil(width * 3.2); // aproximación del trazo de la firma
+  const length = Math.ceil(width * 3.5); // aproximación del trazo de la firma
 
-  svg.setAttribute('viewBox', `0 0 ${w} 60`);
+  svg.setAttribute('viewBox', `0 0 ${w} 80`);
   text.setAttribute('x', w / 2);
   text.style.strokeDasharray = `${length}`;
   text.style.strokeDashoffset = `${length}`;

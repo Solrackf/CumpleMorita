@@ -399,6 +399,28 @@ body {
   fill: var(--dorado);
 }
 
+/* Variante para apodos dentro del título del hero */
+.nickname-draw {
+  height: 1.2em;
+  width: auto;
+  max-width: 60%;
+  vertical-align: middle;
+}
+.nickname-draw .signature-text {
+  stroke-width: 1.8;
+}
+
+/* Variante para apodos dentro de párrafos */
+.signature-inline {
+  height: 1.2em;
+  width: auto;
+  max-width: none;
+  vertical-align: bottom;
+}
+.signature-inline .signature-text {
+  stroke-width: 2.6;
+}
+
 /* ───────────────────────────────────────────
    REVELADO al hacer scroll (IntersectionObserver)
    ─────────────────────────────────────────── */
@@ -543,6 +565,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.final-signature .signature-draw {
+  max-width: 220px;
 }
 .final-promise {
   margin: 3.4rem auto 0;
