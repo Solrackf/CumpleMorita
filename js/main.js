@@ -37,8 +37,6 @@ const loader      = document.getElementById('loader');
 const hero        = document.getElementById('hero');
 const story       = document.getElementById('story');
 const startBtn    = document.getElementById('start-btn');
-const surpriseBtn = document.getElementById('surprise-btn');
-const surprise    = document.getElementById('surprise');
 const finalSec    = document.getElementById('final');
 const music       = document.getElementById('music');
 const musicBtn    = document.getElementById('music-btn');
@@ -333,13 +331,11 @@ function launchConfetti() {
   requestAnimationFrame(tick);
 }
 
-/* Observa la sección final: confeti + botón sorpresa con retraso */
+/* Observa la sección final: lanza el confeti una sola vez */
 const finalObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
     launchConfetti();
-    // El botón aparece lentamente, después de leer el mensaje final
-    setTimeout(() => surpriseBtn.classList.add('visible'), 6500);
     finalObserver.unobserve(entry.target);
   });
 }, { threshold: 0.4 });
@@ -357,13 +353,6 @@ startBtn.addEventListener('click', () => {
   requestAnimationFrame(() => {
     story.querySelector('.chapter').scrollIntoView({ behavior: 'smooth' });
   });
-});
-
-surpriseBtn.addEventListener('click', () => {
-  surprise.hidden = false;
-  // Activa el revelado dentro de la sorpresa
-  surprise.querySelectorAll('.reveal-slow').forEach((el) => revealObserver.observe(el));
-  surprise.scrollIntoView({ behavior: 'smooth' });
 });
 
 /* ═══════════════════════════════════════════

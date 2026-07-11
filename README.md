@@ -135,16 +135,6 @@ La página respeta `prefers-reduced-motion` para accesibilidad.
 
 ---
 
-## 🎁 Agregar la sorpresa final
-
-La sección con id `surprise` en `index.html` está lista para el futuro. Dentro encontrarás ejemplos comentados para agregar un **video** u **otro mensaje**:
-
-```html
-<video controls src="assets/video/sorpresa.mp4"></video>
-```
-
----
-
 ## 💻 Probar localmente
 
 Abre una terminal en la carpeta del proyecto y ejecuta:
