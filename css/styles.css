@@ -590,6 +590,30 @@ body {
   background: linear-gradient(90deg, transparent, var(--dorado), transparent);
 }
 
+/* Firma final: cierre espectacular de la promesa */
+.final-promise-signature {
+  margin-top: 1.2rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(8px);
+  transition: opacity 2.6s var(--ease-cine), transform 2.6s var(--ease-cine), filter 2.6s var(--ease-cine);
+}
+.final-promise-signature.in {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+.final-promise-signature .signature-draw {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+.final-promise-signature .signature-text {
+  filter: drop-shadow(0 0 16px rgba(201, 169, 106, 0.35));
+  stroke-width: 1.2;
+}
+
 /* ═══════════════════════════════════════════
    RESPONSIVE — ajustes móviles
    ═══════════════════════════════════════════ */
