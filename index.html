@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz cumpleaños, Mily ❤️</title>
+  <meta name="description" content="Un regalo hecho con el corazón, solo para ti." />
+
+  <!-- Tipografías: Cormorant Garamond (títulos), Lora (lectura), Jost (interfaz) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       PANTALLA DE CARGA
+       Espera a que todo (fuentes, imágenes) esté listo
+       ══════════════════════════════════════════ -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-heart">❤</div>
+    <p class="loader-text">Preparando algo especial…</p>
+  </div>
+
+  <!-- Partículas ambientales (corazones, destellos, pétalos) -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- Confeti (solo se activa al final) -->
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <!-- ══════════════════════════════════════════
+       MÚSICA
+       Reemplaza el archivo en: assets/music/music.mp3
+       ══════════════════════════════════════════ -->
+  <audio id="music" src="assets/music/music.mp3" loop preload="auto"></audio>
+  <button id="music-btn" class="music-btn" aria-label="Reproducir nuestra canción">
+    <span class="music-icon">🎵</span>
+    <span class="music-label">Nuestra canción</span>
+  </button>
+
+  <!-- ══════════════════════════════════════════
+       INICIO — Pantalla de bienvenida
+       ══════════════════════════════════════════ -->
+  <header id="hero" class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow reveal">Para Militza Yamile</p>
+      <h1 class="hero-title reveal">Feliz cumpleaños, Mily <span class="heart-beat">❤️</span></h1>
+      <p class="hero-sub reveal">Preparé algo muy especial para ti.<br />Léelo con calma.</p>
+      <button id="start-btn" class="btn-primary reveal">Comenzar</button>
+    </div>
+    <div class="hero-glow" aria-hidden="true"></div>
+  </header>
+
+  <!-- ══════════════════════════════════════════
+       MENSAJES — Cada capítulo es una sección
+       Para agregar más mensajes: copia un bloque
+       <section class="chapter"> completo y edita
+       el texto. Todo lo demás es automático.
+       ══════════════════════════════════════════ -->
+  <main id="story" class="story" hidden>
+
+    <!-- Capítulo 1 -->
+    <section class="chapter" data-bg="1" data-ornament="❤️">
+      <div class="chapter-card">
+        <span class="chapter-label reveal">❤️ Capítulo 1</span>
+        <h2 class="reveal">Feliz cumpleaños, al amor de mi vida.</h2>
+        <p class="reveal">Feliz cumpleaños al amor de mi vida.</p>
+        <p class="reveal">Feliz cumpleaños, Mily. ❤️</p>
+        <p class="reveal">Llevo varios días pensando en cómo hacer que este cumpleaños fuera diferente, porque una mujer como tú merece mucho más que un regalo material. Merece sentirse tan especial como me haces sentir a mí todos los días desde que formas parte de mi vida.</p>
+        <p class="reveal">Por eso decidí hacerte este regalo. No porque crea que unas cuantas palabras puedan describir todo lo que siento por ti, sino porque quería regalarte un pedacito de mi corazón. Quería que, mientras lees esto, pudieras sentir todo el amor, la admiración y la felicidad que siento por tenerte en mi vida.</p>
+        <p class="reveal">Hoy no solo cumple años la mujer que amo. Hoy cumple años la mujer más espectacular del mundo, la mujer que hace que cualquier momento sea mejor con solo estar presente, la mujer que llena de tranquilidad mi corazón y que me hace soñar con compartir una vida entera a su lado.</p>
+        <p class="reveal">Ojalá este regalo consiga hacerte sonreír aunque sea una pequeña parte de todo lo que tú me haces sonreír a mí.</p>
+        <p class="reveal">Feliz cumpleaños, mi Mora.</p>
+      </div>
+    </section>
+
+    <!-- Capítulo 2 -->
+    <section class="chapter" data-bg="2" data-ornament="🌸">
+      <div class="chapter-card">
+        <span class="chapter-label reveal">❤️ Capítulo 2</span>
+        <h2 class="reveal">Gracias por estar en mi vida.</h2>
+        <p class="reveal">Hay algo que quiero agradecerte antes que cualquier otra cosa.</p>
+        <p class="reveal">Gracias por estar en mi vida.</p>
+        <p class="reveal">Nuestra historia no ha sido una línea recta. Hemos tenido momentos muy bonitos, otros difíciles e incluso un tiempo en el que nuestros caminos tomaron distancia.</p>
+        <p class="reveal">Pero hay algo que nunca cambió para mí: nunca dejaste de ser importante.</p>
+        <p class="reveal">Nunca dejaste de ocupar un lugar muy especial dentro de mi corazón.</p>
+        <p class="reveal">Y hoy, mientras celebramos un año más de tu vida, no puedo evitar sonreír al pensar que la mujer con la que decidí que quiero caminar el resto de mi vida está cumpliendo años.</p>
+        <p class="reveal">Me hace inmensamente feliz que nuestros caminos se hayan vuelto a encontrar.</p>
+        <p class="reveal">Me hace feliz poder volver a imaginar un futuro contigo.</p>
+        <p class="reveal">Y me hace todavía más feliz saber que hoy puedo decirte, con toda la tranquilidad de mi corazón, que no hay otro lugar donde quisiera estar que caminando a tu lado.</p>
+      </div>
+    </section>
+
+    <!-- Capítulo 3 -->
+    <section class="chapter" data-bg="3" data-ornament="✨">
+      <div class="chapter-card">
+        <span class="chapter-label reveal">❤️ Capítulo 3</span>
+        <h2 class="reveal">La mujer que más admiro.</h2>
+        <p class="reveal">Si alguien me preguntara qué es lo que más amo de ti, probablemente esperaría que respondiera hablando de tus ojos, de tu sonrisa o de lo hermosa que eres.</p>
+        <p class="reveal">Pero la verdad es que lo primero que viene a mi mente es algo mucho más grande.</p>
+        <p class="reveal">Te admiro.</p>
+        <p class="reveal">Admiro a la mujer que sigue adelante incluso cuando las cosas parecen ponerse en su contra.</p>
+        <p class="reveal">Admiro tu capacidad para levantarte una vez más cuando el camino se hace difícil.</p>
+        <p class="reveal">Admiro la disciplina con la que luchas por tus metas.</p>
+        <p class="reveal">La inteligencia con la que enfrentas los retos.</p>
+        <p class="reveal">La perseverancia con la que sigues avanzando sin importar los obstáculos.</p>
+        <p class="reveal">Me enamora saber que nunca te conformas, que siempre buscas aprender un poco más, mejorar un poco más y convertirte en una mejor versión de ti misma.</p>
+        <p class="reveal">Y creo que una de las mayores fortunas de mi vida fue enamorarme de una mujer a la que admiro tanto.</p>
+        <p class="reveal">Porque amarte es maravilloso.</p>
+        <p class="reveal">Pero admirarte hace que cada día vuelva a elegirte con la misma ilusión.</p>
+      </div>
+    </section>
+
+    <!-- Capítulo 4 -->
+    <section class="chapter" data-bg="4" data-ornament="🕊️">
+      <div class="chapter-card">
+        <span class="chapter-label reveal">❤️ Capítulo 4</span>
+        <h2 class="reveal">Estoy orgulloso de ti.</h2>
+        <p class="reveal">Hay algo que quizá no te digo tan seguido como debería.</p>
+        <p class="reveal">Estoy profundamente orgulloso de ti.</p>
+        <p class="reveal">Orgulloso de la mujer en la que te has convertido.</p>
+        <p class="reveal">Orgulloso de cada batalla que has enfrentado, incluso de aquellas que muchas veces solo tú conoces.</p>
+        <p class="reveal">Sé que tu camino no ha sido sencillo. Sé que has tenido momentos difíciles, momentos en los que la vida te ha puesto pruebas que nadie debería tener que enfrentar. Y, aun así, aquí estás.</p>
+        <p class="reveal">Sigues de pie.</p>
+        <p class="reveal">Sigues luchando.</p>
+        <p class="reveal">Sigues sonriendo.</p>
+        <p class="reveal">Sigues construyendo un futuro para ti.</p>
+        <p class="reveal">Eso es lo que más admiro.</p>
+        <p class="reveal">Tu capacidad de levantarte una vez más cuando la vida parece querer detenerte.</p>
+        <p class="reveal">Tu fuerza para seguir adelante incluso cuando las cosas no son fáciles.</p>
+        <p class="reveal">Tus ganas de aprender, de crecer y de convertirte cada día en una mejor versión de ti misma.</p>
+        <p class="reveal">Claro que me hará inmensamente feliz verte graduarte y celebrar todos los logros que sé que aún vienen para ti. Pero mi orgullo por ti no empezó con una carrera, ni depende de un título.</p>
+        <p class="reveal">Estoy orgulloso de ti por la mujer que eres.</p>
+        <p class="reveal">Por todo lo que has superado.</p>
+        <p class="reveal">Por todo lo que has aprendido.</p>
+        <p class="reveal">Y porque, después de todo lo que has vivido, sigues teniendo la valentía de mirar hacia adelante y seguir construyendo la vida que sueñas.</p>
+        <p class="reveal">Eso, para mí, vale muchísimo más que cualquier diploma.</p>
+        <p class="reveal">Y créeme cuando te digo que todos los días encuentro una razón nueva para sentirme orgulloso de llamarte mi mujer.</p>
+      </div>
+    </section>
+
+    <!-- Capítulo 5 -->
+    <section class="chapter" data-bg="5" data-ornament="🌙">
+      <div class="chapter-card">
+        <span class="chapter-label reveal">❤️ Capítulo 5</span>
+        <h2 class="reveal">Nunca dejes que el mundo te haga olvidar quién eres.</h2>
+        <p class="reveal">Hay algo que quiero pedirte, no solo hoy que es tu cumpleaños, sino siempre.</p>
+        <p class="reveal">Nunca permitas que las palabras de otras personas definan el valor que tienes.</p>
+        <p class="reveal">Habrá quienes hablen sin conocerte de verdad.</p>
+        <p class="reveal">Habrá quienes se queden con una pequeña parte de ti y crean que ya saben quién eres.</p>
+        <p class="reveal">Habrá quienes no alcancen a ver todo lo bueno que llevas dentro.</p>
+        <p class="reveal">Pero yo sí te conozco.</p>
+        <p class="reveal">He conocido a la Mily que lucha, que se esfuerza, que se equivoca, que aprende, que vuelve a intentarlo y que nunca deja de avanzar.</p>
+        <p class="reveal">Conozco tus virtudes y también conozco esos días en los que dudas de ti misma.</p>
+        <p class="reveal">Y precisamente porque te conozco de verdad puedo decirte algo con toda la seguridad de mi corazón:</p>
+        <p class="reveal">Eres una mujer increíble.</p>
+        <p class="reveal">Nunca dejes que una opinión ajena haga más ruido que la voz de quienes realmente te conocemos y te amamos.</p>
+        <p class="reveal">Porque yo nunca voy a dejar de creer en ti.</p>
+        <p class="reveal">Nunca voy a dejar de sentirme orgulloso de la mujer que eres.</p>
+      </div>
+    </section>
+
+    <!-- Capítulo 6 -->
+    <section class="chapter" data-bg="6" data-ornament="💫">
+      <div class="chapter-card">
+        <span class="chapter-label reveal">❤️ Capítulo 6</span>
+        <h2 class="reveal">Mis sueños contigo.</h2>
+        <p class="reveal">Si alguien me preguntara cuál es mi lugar favorito en el mundo, creo que respondería algo muy sencillo: donde estés tú.</p>
+        <p class="reveal">Porque desde hace mucho tiempo dejé de imaginar mis sueños solo. Ahora, cuando pienso en el futuro, inevitablemente apareces tú.</p>
+        <p class="reveal">Sueño con el día en que por fin pueda tenerte frente a mí. Con poder tomar tus manos después de tanto tiempo imaginándolo, abrazarte sin tener que despedirme enseguida, darte un beso y comprobar que la realidad es todavía más bonita de lo que tantas veces he imaginado.</p>
+        <p class="reveal">Sueño con caminar contigo sin prisa, conversar durante horas, reírnos por cualquier tontería, descubrir lugares nuevos y llenar nuestros celulares de fotos que algún día veremos sonriendo, recordando cómo empezó todo.</p>
+        <p class="reveal">Sueño con esos momentos sencillos que para muchos pueden parecer pequeños, pero que para mí significan el mundo porque serían contigo.</p>
+        <p class="reveal">Y lo más bonito de todos esos sueños es que ya no los veo como algo imposible. Cada día que pasa siento que estamos un paso más cerca de convertirlos en recuerdos.</p>
+      </div>
+    </section>
+
+    <!-- Capítulo 7 -->
+    <section class="chapter" data-bg="7" data-ornament="🏡">
+      <div class="chapter-card">
+        <span class="chapter-label reveal">❤️ Capítulo 7</span>
+        <h2 class="reveal">Nuestro futuro.</h2>
+        <p class="reveal">Hay un pensamiento que, cada vez que aparece en mi cabeza, me hace sonreír sin darme cuenta.</p>
+        <p class="reveal">Imaginar una vida contigo.</p>
+        <p class="reveal">No una vida perfecta, porque sé que ninguna lo es. Imagino una vida real: con días buenos, con días difíciles, con metas compartidas, con aprendizajes y con la tranquilidad de saber que, pase lo que pase, estaremos uno al lado del otro.</p>
+        <p class="reveal">Y hay algo que nunca antes había sentido con nadie.</p>
+        <p class="reveal">Tú eres la única mujer que me ha hecho imaginarme siendo papá.</p>
+        <p class="reveal">La única con la que he pensado, de verdad, en formar una familia.</p>
+        <p class="reveal">La única con la que puedo imaginar un hogar lleno de amor, de risas y de recuerdos.</p>
+        <p class="reveal">Cuando pienso en nuestros hijos, no pienso solo en tener una familia. Pienso en la inmensa felicidad que sentiría al saber que la mujer que amo también es la mamá de ellos.</p>
+        <p class="reveal">Porque no puedo imaginar un mejor ejemplo de esfuerzo, inteligencia, fortaleza y amor para una familia que la mujer de la que me enamoré.</p>
+        <p class="reveal">Si algún día la vida nos regala ese futuro, creo que voy a ser el hombre más feliz del mundo.</p>
+        <p class="reveal">Porque ese futuro tendría algo que hoy ya hace mi presente mucho más bonito:</p>
+        <p class="reveal">Te tendría a ti.</p>
+      </div>
+    </section>
+
+    <!-- Capítulo 8 -->
+    <section class="chapter" data-bg="8" data-ornament="🌷">
+      <div class="chapter-card">
+        <span class="chapter-label reveal">❤️ Capítulo 8</span>
+        <h2 class="reveal">Gracias.</h2>
+        <p class="reveal">A veces me pongo a pensar en todas las cosas que quisiera agradecerte y me doy cuenta de que nunca terminaría.</p>
+        <p class="reveal">Gracias por aparecer en mi vida.</p>
+        <p class="reveal">Gracias por permanecer.</p>
+        <p class="reveal">Gracias por volver.</p>
+        <p class="reveal">Gracias por confiar en mí.</p>
+        <p class="reveal">Gracias por permitirme conocerte de una forma que muy pocas personas tienen la fortuna de hacerlo.</p>
+        <p class="reveal">Gracias por hacerme sentir escuchado.</p>
+        <p class="reveal">Gracias por las conversaciones largas.</p>
+        <p class="reveal">Gracias por las risas.</p>
+        <p class="reveal">Gracias por esos pequeños momentos que quizá parecen normales, pero que para mí terminan convirtiéndose en recuerdos que guardo con muchísimo cariño.</p>
+        <p class="reveal">Gracias por inspirarme a querer ser un mejor hombre.</p>
+        <p class="reveal">Gracias por hacerme querer trabajar más, crecer más y construir un futuro del que ambos podamos sentirnos orgullosos.</p>
+        <p class="reveal">Pero, sobre todo...</p>
+        <p class="reveal">Gracias por ser tú.</p>
+        <p class="reveal">Porque fue precisamente esa mujer, con sus virtudes, sus defectos, sus fortalezas y sus días difíciles, de quien me enamoré.</p>
+        <p class="reveal">Y de quien sigo enamorándome cada día.</p>
+      </div>
+    </section>
+
+    <!-- Capítulo 9 -->
+    <section class="chapter" data-bg="9" data-ornament="📖">
+      <div class="chapter-card">
+        <span class="chapter-label reveal">❤️ Capítulo 9</span>
+        <h2 class="reveal">Todo lo que aún nos falta vivir.</h2>
+        <p class="reveal">¿Sabes qué es lo más bonito de nuestro futuro?</p>
+        <p class="reveal">Que todavía está lleno de páginas en blanco.</p>
+        <p class="reveal">Nos faltan muchísimas fotografías.</p>
+        <p class="reveal">Muchísimos abrazos.</p>
+        <p class="reveal">Muchísimos besos.</p>
+        <p class="reveal">Muchísimos cumpleaños.</p>
+        <p class="reveal">Muchísimas metas por celebrar.</p>
+        <p class="reveal">Nos faltan viajes.</p>
+        <p class="reveal">Nos faltan desayunos tranquilos un domingo.</p>
+        <p class="reveal">Nos faltan noches viendo una película sin prestar demasiada atención porque estaremos hablando de cualquier otra cosa.</p>
+        <p class="reveal">Nos faltan caminatas.</p>
+        <p class="reveal">Nos faltan aniversarios.</p>
+        <p class="reveal">Nos faltan muchísimas historias que algún día recordaremos riéndonos.</p>
+        <p class="reveal">Y cuando pienso en todo eso, siento una emoción muy difícil de explicar.</p>
+        <p class="reveal">Porque no imagino simplemente un futuro.</p>
+        <p class="reveal">Imagino un futuro contigo.</p>
+        <p class="reveal">Y eso hace que cualquier sueño sea todavía más bonito.</p>
+      </div>
+    </section>
+
+    <!-- Capítulo 10 -->
+    <section class="chapter" data-bg="10" data-ornament="🌟">
+      <div class="chapter-card">
+        <span class="chapter-label reveal">❤️ Capítulo 10</span>
+        <h2 class="reveal">Si algún día dudas...</h2>
+        <p class="reveal">Hay algo que quiero que recuerdes siempre.</p>
+        <p class="reveal">Habrá días buenos.</p>
+        <p class="reveal">Y habrá días en los que quizá sientas que no eres suficiente.</p>
+        <p class="reveal">Habrá momentos en los que las cosas no salgan como esperabas.</p>
+        <p class="reveal">Habrá personas que opinen sin conocerte.</p>
+        <p class="reveal">Pero cuando alguno de esos días llegue, quiero que recuerdes esto.</p>
+        <p class="reveal">Yo sí te conozco.</p>
+        <p class="reveal">Conozco a la mujer fuerte que hay detrás de cada sonrisa.</p>
+        <p class="reveal">Conozco todo el esfuerzo que haces incluso cuando nadie lo ve.</p>
+        <p class="reveal">Conozco tus miedos.</p>
+        <p class="reveal">Tus sueños.</p>
+        <p class="reveal">Tus ganas de salir adelante.</p>
+        <p class="reveal">Y precisamente porque conozco todo eso puedo decirte algo con absoluta tranquilidad:</p>
+        <p class="reveal">Creo en ti.</p>
+        <p class="reveal">Siempre voy a creer en ti.</p>
+        <p class="reveal">Incluso cuando tú misma dudes por un momento.</p>
+      </div>
+    </section>
+
+    <!-- Capítulo 11 -->
+    <section class="chapter" data-bg="11" data-ornament="🎂">
+      <div class="chapter-card">
+        <span class="chapter-label reveal">❤️ Capítulo 11</span>
+        <h2 class="reveal">Hoy celebramos tu vida.</h2>
+        <p class="reveal">Hoy es tu cumpleaños.</p>
+        <p class="reveal">Y puede parecer una fecha más en el calendario.</p>
+        <p class="reveal">Pero para mí significa muchísimo.</p>
+        <p class="reveal">Porque hoy nació la mujer que cambiaría mi vida años después.</p>
+        <p class="reveal">Hoy nació la mujer que me enseñó que amar también es admirar.</p>
+        <p class="reveal">Hoy nació la mujer que me hace sonreír cuando pienso en el futuro.</p>
+        <p class="reveal">Hoy nació la mujer con la que sueño construir una vida entera.</p>
+        <p class="reveal">Y, aunque hoy el mundo entero pueda desearte un feliz cumpleaños, quiero que nunca olvides algo.</p>
+        <p class="reveal">Nadie está más feliz de que existas que yo.</p>
+        <p class="reveal">Gracias por cumplir un año más.</p>
+        <p class="reveal">Gracias por seguir escribiendo tu historia.</p>
+        <p class="reveal">Gracias por dejarme formar parte de ella.</p>
+      </div>
+    </section>
+
+    <!-- Capítulo 12 -->
+    <section class="chapter" data-bg="12" data-ornament="💍">
+      <div class="chapter-card">
+        <span class="chapter-label reveal">❤️ Capítulo 12</span>
+        <h2 class="reveal">Una promesa.</h2>
+        <p class="reveal">Mily...</p>
+        <p class="reveal">Si después de leer todo esto hubiera una sola idea que quisiera que guardaras en tu corazón, sería esta:</p>
+        <p class="reveal">Nunca voy a dejar de elegirte.</p>
+        <p class="reveal">Nunca voy a dejar de admirarte.</p>
+        <p class="reveal">Nunca voy a dejar de sentirme orgulloso de la mujer que eres.</p>
+        <p class="reveal">Quiero seguir celebrando tus cumpleaños.</p>
+        <p class="reveal">Quiero seguir abrazándote cuando tengas un mal día.</p>
+        <p class="reveal">Quiero seguir riéndome contigo por cualquier tontería.</p>
+        <p class="reveal">Quiero seguir soñando contigo.</p>
+        <p class="reveal">Quiero seguir construyendo recuerdos.</p>
+        <p class="reveal">Quiero seguir llenando nuestros celulares de fotografías.</p>
+        <p class="reveal">Quiero seguir viendo cómo cumples cada una de las metas que te propongas.</p>
+        <p class="reveal">Quiero seguir enamorándome de ti una y otra vez.</p>
+        <p class="reveal">Y, si la vida nos lo permite, quiero que dentro de muchos años podamos volver a abrir esta página, mirarnos y sonreír al recordar que todo esto comenzó como un pequeño regalo de cumpleaños.</p>
+        <p class="reveal">Porque, al final, el verdadero regalo nunca fue esta página.</p>
+        <p class="reveal">El verdadero regalo ha sido poder compartir mi vida con una mujer como tú.</p>
+        <p class="reveal">Feliz cumpleaños, mi Mora.</p>
+        <p class="reveal">Feliz cumpleaños, Bombón.</p>
+        <p class="reveal">Feliz cumpleaños al amor de mi vida.</p>
+        <p class="reveal">Te amo con todo mi corazón.</p>
+        <p class="reveal signature">— Carlos ❤️</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         GALERÍA — Marcos polaroid esperando fotos.
+         Para agregar fotos algún día: reemplaza el
+         src del placeholder por assets/photos/foto1.jpg, etc.
+         ══════════════════════════════════════════ -->
+    <section class="chapter gallery-section" data-bg="gallery" data-ornament="📸">
+      <div class="gallery-inner">
+        <div class="gallery gallery-empty">
+          <figure class="polaroid reveal"><img src="assets/photos/placeholder.svg" alt="" loading="lazy" /></figure>
+          <figure class="polaroid reveal"><img src="assets/photos/placeholder.svg" alt="" loading="lazy" /></figure>
+          <figure class="polaroid reveal"><img src="assets/photos/placeholder.svg" alt="" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frase silenciosa — fondo completamente limpio -->
+    <section class="chapter quiet-section" data-bg="quiet">
+      <div class="quiet-inner">
+        <p class="quiet-phrase reveal-slow">"La próxima foto que pongamos aquí... quiero que sea la primera de las miles que todavía nos faltan por tomar juntos."</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         FINAL
+         ══════════════════════════════════════════ -->
+    <section id="final" class="chapter final-section" data-bg="final">
+      <div class="final-inner">
+        <p class="final-line reveal-slow">Gracias por existir.</p>
+        <p class="final-line reveal-slow">Gracias por hacerme tan feliz.</p>
+        <p class="final-line reveal-slow">Espero que este haya sido apenas uno de los muchísimos cumpleaños que quiero celebrar contigo.</p>
+        <p class="final-line reveal-slow">Te amo infinitamente.</p>
+        <p class="final-line final-signature reveal-slow">Carlos ❤️</p>
+
+        <blockquote class="final-promise reveal-slow">
+          "Hoy celebramos tu cumpleaños. Espero que algún día podamos celebrarlo tomados de la mano, riéndonos mientras vemos estas mismas fotos y recordando que todo esto empezó con un simple mensaje de 'Feliz cumpleaños'. Porque si hay un sueño que tengo claro, es seguir construyendo una vida contigo. Feliz cumpleaños, mi Mora. Te amo."
+        </blockquote>
+
+        <button id="surprise-btn" class="btn-ghost">Hay una última sorpresa...</button>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SORPRESA FUTURA
+         Aquí puedes agregar después un video,
+         otro mensaje o cualquier sorpresa.
+         ══════════════════════════════════════════ -->
+    <section id="surprise" class="chapter surprise-section" data-bg="surprise" hidden>
+      <div class="surprise-inner">
+        <div class="surprise-heart">❤</div>
+        <p class="surprise-text reveal-slow">Muy pronto...</p>
+        <!--
+          EJEMPLO PARA AGREGAR UN VIDEO:
+          <video controls src="assets/video/sorpresa.mp4" style="max-width:90%;border-radius:16px;"></video>
+
+          EJEMPLO PARA AGREGAR OTRO MENSAJE:
+          <p class="surprise-text">Tu mensaje aquí…</p>
+        -->
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
