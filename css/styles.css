@@ -462,6 +462,20 @@ body {
   margin: 0 auto;
 }
 
+/* Un único marco, centrado e íntimo */
+.gallery-single {
+  grid-template-columns: 1fr;
+}
+.gallery-single .polaroid {
+  max-width: 300px;
+  --tilt: -1.6deg;
+}
+.gallery-single .polaroid figcaption {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0 0.4rem;
+}
+
 .polaroid {
   width: 100%;
   max-width: 270px;
